@@ -27,16 +27,20 @@ public class Reserva {
     public Date getDiaSaida() {
         return diaSaida;
     }
-   // Removi so metodos set de diaEntrada e diaSaida
     public  long Duracao(){
-        // para calcular a difeenca de dias entre diaEntrda e diaSaida usei os Milisegundos
-        // diferenca entra as duas datas diaEntrada e diaSaida em
-        long diferenca = diaEntrada.getTime() - diaSaida.getTime();
-        return  TimeUnit.DAYS.convert(diferenca,TimeUnit.MILLISECONDS);
+        long diferenca = diaEntrada.getTime() - diaSaida.getTime();  // retorna millisegundos de cada data e faz a subtracao
+        return  TimeUnit.DAYS.convert(diferenca,TimeUnit.MILLISECONDS);  // faz a conversao de millisegundos para dias
     }
-    public  void atualizarDatas( Date diaEntrada, Date diaSaida){
+    public  String atualizarDatas( Date diaEntrada, Date diaSaida){
+        Date now = new Date();
+        if(diaEntrada.before(now) || diaSaida.before(now)){
+            return "As datas deve estar no futuro nao no passado!";
+        }if(!diaSaida.after(diaEntrada)) {
+            return "Erro: a data de saida deve ser depois da data de entrada!";
+        }
            this.diaEntrada = diaEntrada;
            this.diaSaida = diaSaida;
+           return  null;
     }
     @Override
     public String toString(){

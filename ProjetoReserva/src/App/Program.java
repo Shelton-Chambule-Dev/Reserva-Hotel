@@ -30,13 +30,12 @@ public class Program {
             diaEntrada = sdf.parse(sc.next());
             System.out.print("Data do dia da entrada (dd/MM/yyyy) : ");
             diaSaida = sdf.parse(sc.next());
-            Date now = new Date();
-            if(diaEntrada.before(now) || diaSaida.before(now)){
-                System.out.println("As datas deve estar no futuro nao no passado!");
-            }else if(!diaSaida.after(diaEntrada)){
-                System.out.println("Erro: a data de saida deve ser depois da data de entrada!");
-            }else {
-                reserva.atualizarDatas(diaEntrada,diaSaida);
+
+            String error = reserva.atualizarDatas(diaEntrada,diaSaida);
+            if(error != null) {
+                System.out.println("Erro de reserva: " + error);
+            }
+            else {
                 System.out.println("Data atualizada: "+reserva);
             }
         }
