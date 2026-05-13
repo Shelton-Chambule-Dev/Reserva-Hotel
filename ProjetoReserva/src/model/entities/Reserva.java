@@ -1,4 +1,5 @@
-package entities;
+package model.entities;
+import model.exceptions.DominioExceptions;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +11,10 @@ public class Reserva {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Reserva(Integer nomeSala, Date diaEntrada, Date diaSaida) {
+    public Reserva(Integer nomeSala, Date diaEntrada, Date diaSaida) throws DominioExceptions {
+        if(!diaSaida.after(diaEntrada)) {
+            throw  new DominioExceptions("Erro: a data de saida deve ser depois da data de entrada!");
+        }
         this.nomeSala = nomeSala;
         this.diaEntrada = diaEntrada;
         this.diaSaida = diaSaida;
@@ -31,16 +35,16 @@ public class Reserva {
         long diferenca = diaEntrada.getTime() - diaSaida.getTime();  // retorna millisegundos de cada data e faz a subtracao
         return  TimeUnit.DAYS.convert(diferenca,TimeUnit.MILLISECONDS);  // faz a conversao de millisegundos para dias
     }
-    public  String atualizarDatas( Date diaEntrada, Date diaSaida){
+    public  void  atualizarDatas( Date diaEntrada, Date diaSaida) throws DominioExceptions{
         Date now = new Date();
         if(diaEntrada.before(now) || diaSaida.before(now)){
-            return "As datas deve estar no futuro nao no passado!";
-        }if(!diaSaida.after(diaEntrada)) {
-            return "Erro: a data de saida deve ser depois da data de entrada!";
+            throw new DominioExceptions("As datas deve estar no futuro nao no passado!");
+        }
+        if(!diaSaida.after(diaEntrada)) {
+            throw  new DominioExceptions("Erro: a data de saida deve ser depois da data de entrada!");
         }
            this.diaEntrada = diaEntrada;
            this.diaSaida = diaSaida;
-           return  null;
     }
     @Override
     public String toString(){
