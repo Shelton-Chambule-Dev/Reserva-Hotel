@@ -1,4 +1,4 @@
-package repository;
+package com.mz.reserva.hotel.repository;
 import com.mz.reserva.hotel.entity.Reserva;
 import com.mz.reserva.hotel.exception.DominioExceptions;
 import java.util.List;

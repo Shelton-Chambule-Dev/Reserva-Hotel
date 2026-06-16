@@ -1,6 +1,6 @@
 package com.mz.reserva.hotel.services;
 import com.mz.reserva.hotel.config.DataBaseConnection;
-import repository.ReservaRepositoryInterface;
+import com.mz.reserva.hotel.repository.ReservaRepositoryInterface;
 import com.mz.reserva.hotel.entity.Reserva;
 import com.mz.reserva.hotel.exception.DominioExceptions;
 import java.sql.Connection;
