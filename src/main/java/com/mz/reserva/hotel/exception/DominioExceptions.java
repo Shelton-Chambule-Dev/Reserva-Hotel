@@ -1,4 +1,4 @@
-package model.exceptions;
+package com.mz.reserva.hotel.exception;
 public class DominioExceptions extends Exception {
 
     public DominioExceptions(String message) {
