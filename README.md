@@ -1,7 +1,7 @@
 # Reserva-Hotel
 ------------------------------------------------------------------------------------------------------------------
 Um sistema CRUD em Java para gestão de reservas de hotel, com persistência de dados em banco de dados relacional PostgreSQL via JDBC.
-__________________________________________________________________________________________________________________
+
 ------------------------------------------------------------------------------------------------------------------
  📖 Sobre o Projecto
 
@@ -58,7 +58,7 @@ Este projecto está licenciado sob a licença **MIT**. Consulte o ficheiro [LICE
 ------------------------------------------------------------------------------------------------------------------
 👨‍💻 Autor
 
-Shelton Chambule
+ Shelton Chambule
 - GitHub: [@Shelton-Chambule-Dev](https://github.com/Shelton-Chambule-Dev)
 
 
