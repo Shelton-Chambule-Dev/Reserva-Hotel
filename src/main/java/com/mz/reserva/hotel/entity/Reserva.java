@@ -12,6 +12,11 @@ public class Reserva {
     public Reserva(){}
 
     public Reserva(Integer id,String nome ,LocalDate diaEntrada, LocalDate diaSaida ) throws DominioExceptions {
+        this.id = id;
+        this.nome = nome;
+        this.diaEntrada = diaEntrada;
+        this.diaSaida = diaSaida;
+
         LocalDate now =  LocalDate.now();
         if(getDiaEntrada().isBefore(now) || getDiaSaida().isBefore(now)){
             throw new DominioExceptions("As datas deve estar no futuro nao no passado!");
@@ -19,10 +24,6 @@ public class Reserva {
         if(!getDiaSaida().isAfter(getDiaEntrada())) {
             throw  new DominioExceptions("Erro: a data de saida deve ser depois da data de entrada!");
         }
-        this.id = id;
-        this.nome = nome;
-        this.diaEntrada = diaEntrada;
-        this.diaSaida = diaSaida;
     }
     public Integer getId() {
         return id;
