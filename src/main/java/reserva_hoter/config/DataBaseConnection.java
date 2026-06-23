@@ -1,7 +1,7 @@
-package com.mz.reserva.hotel.config;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+package reserva_hoter.config;
+import reserva_hoter.exception.ReservaExceptions;
+
+import java.sql.*;
 import java.util.Objects;
 public class DataBaseConnection {
 
@@ -29,5 +29,26 @@ public class DataBaseConnection {
 
     public Connection connection(){
         return  connection;
+    }
+
+    public static  void closeStatement(Statement st) throws ReservaExceptions{
+        if(st != null){
+            try {
+                st.close();
+            } catch (SQLException e) {
+                    throw new ReservaExceptions(e.getMessage());
+            }
+        }
+
+    }
+    public static  void closeResultSet(ResultSet rs) throws ReservaExceptions{
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new ReservaExceptions(e.getMessage());
+            }
+        }
+
     }
 }

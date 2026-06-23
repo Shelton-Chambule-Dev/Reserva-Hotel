@@ -1,13 +1,13 @@
-package com.mz.reserva.hotel.controller;
-import com.mz.reserva.hotel.entity.Reserva;
-import com.mz.reserva.hotel.exception.DominioExceptions;
-import com.mz.reserva.hotel.services.ReservaServices;
+package reserva_hoter.controller;
+import reserva_hoter.entity.Reserva;
+import reserva_hoter.exception.ReservaExceptions;
+import reserva_hoter.services.ReservaServices;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Program {
-    public static void main(String[] args) throws DominioExceptions {
+    public static void main(String[] args) throws ReservaExceptions {
 
         Reserva reserva1 = new Reserva();
         ReservaServices reservaServices = new ReservaServices();

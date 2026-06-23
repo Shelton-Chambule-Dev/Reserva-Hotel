@@ -1,5 +1,5 @@
-package com.mz.reserva.hotel.entity;
-import com.mz.reserva.hotel.exception.DominioExceptions;
+package reserva_hoter.entity;
+import reserva_hoter.exception.ReservaExceptions;
 import java.time.LocalDate;
 import java.util.Objects;
 public class Reserva {
@@ -11,7 +11,7 @@ public class Reserva {
 
     public Reserva(){}
 
-    public Reserva(Integer id,String nome ,LocalDate diaEntrada, LocalDate diaSaida ) throws DominioExceptions {
+    public Reserva(Integer id,String nome ,LocalDate diaEntrada, LocalDate diaSaida ) throws ReservaExceptions {
         this.id = id;
         this.nome = nome;
         this.diaEntrada = diaEntrada;
@@ -19,10 +19,10 @@ public class Reserva {
 
         LocalDate now =  LocalDate.now();
         if(getDiaEntrada().isBefore(now) || getDiaSaida().isBefore(now)){
-            throw new DominioExceptions("As datas deve estar no futuro nao no passado!");
+            throw new ReservaExceptions("As datas deve estar no futuro nao no passado!");
         }
         if(!getDiaSaida().isAfter(getDiaEntrada())) {
-            throw  new DominioExceptions("Erro: a data de saida deve ser depois da data de entrada!");
+            throw  new ReservaExceptions("Erro: a data de saida deve ser depois da data de entrada!");
         }
     }
     public Integer getId() {
