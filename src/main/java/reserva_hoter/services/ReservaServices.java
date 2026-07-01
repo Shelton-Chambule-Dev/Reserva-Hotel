@@ -31,7 +31,7 @@ public class ReservaServices implements ReservaRepositoryInterface {
               return reserva;
     }
     @Override
-    public void remove(int id) throws ReservaExceptions {
+    public void deleteById(int id) throws ReservaExceptions {
             String sql = "DELETE FROM reservas WHERE id = ?";
         PreparedStatement pr =  null;
             try(Connection connection = DataBaseConnection.getDataBaseConnection().connection()) {

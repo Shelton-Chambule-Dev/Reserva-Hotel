@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface ReservaRepositoryInterface {
 
     public Reserva save(Reserva reserva) throws ReservaExceptions;
-    public void remove(int numeroSala) throws ReservaExceptions;
+    public void deleteById(int numeroSala) throws ReservaExceptions;
     public Reserva update(Reserva reserva) throws ReservaExceptions;
     public Optional<Reserva> findById(int id) throws ReservaExceptions;
     public List<Reserva> findAll() throws ReservaExceptions;
